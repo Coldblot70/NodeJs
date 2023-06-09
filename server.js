@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const host = '127.0.0.1';
+const host = '0.0.0.0';
 const port = process.env.SERVER_PORT || 10000;
 
 app.use(express.static(__dirname+'/html'));
