@@ -4,7 +4,7 @@ const host = '127.0.0.1';
 const port = process.env.SERVER_PORT || 10000;
 
 app.use(express.static(__dirname+'/html'));
-app.get('/', (req, res) => res.sendFile('/index.html'));
+app.get('/', (req, res) => res.send('work'));
 const server = app.listen(port,host, () => console.log('Server Start!!!'));
 
 const io = require('socket.io')(server);
