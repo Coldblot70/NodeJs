@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>
+        Snake2D
+    </title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="mainContainer">
+        <h1>Snake</h1>
+        <div id="scoreBoard">
+            <h2 id="userText">User-</h2>
+            <h2 id="score"><span id="user">UserScore</span>:<span id="userScore">0</span></h2>
+            <h2 id="oppText">Opponent-</h2>
+            <h2 id="oppScore"><span id="opponent">OppName</span>:<span id="opponentScore">0</span></h2>
+        </div>
+        <img src="" id="fruits" width="0" height="0" />
+        <canvas id="board">
+        </canvas>
+    </div>
+    <div id="waiting">
+        <h1>Waiting for Other player to join</h1>
+        <img src="./Images/Loading.gif" />
+        <button id="enter">PressToEnter</button>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="snake.js"></script>
+
+</body>
+</html>
