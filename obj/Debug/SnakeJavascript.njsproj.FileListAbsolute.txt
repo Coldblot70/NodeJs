@@ -1,3 +1,0 @@
-D:\JavascriptSmallProjects\SnakeJavascript\SnakeJavascript\obj\Debug\SnakeJavascript.njsproj.AssemblyReference.cache
-D:\JavascriptSmallProjects\SnakeJavascript\SnakeJavascript\obj\Debug\SnakeJavascript.njsproj.CoreCompileInputs.cache
-D:\JavascriptSmallProjects\SnakeJavascript\SnakeJavascript\bin\Microsoft.NodejsTools.WebRole.dll
