@@ -2,7 +2,7 @@
   "name": "snake-javascript",
   "version": "0.0.0",
   "description": "SnakeJavascript",
-  "main": "app.js",
+  "main": "index.js",
   "author": {
     "name": ""
   },
