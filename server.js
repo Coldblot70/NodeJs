@@ -19,6 +19,9 @@ io.on("connection", (socket) => {
             io.emit("playersComplete", { players:allPlayers });
         }
     });
+     socket.on("message", (msg) => {
+        socket.broadcast.emit("sendMessage", { message:msg.message });
+    });
     socket.on("userScore", (score) => {
        socket.broadcast.emit("userScore", { userScore: score.score})
     });
