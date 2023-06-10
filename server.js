@@ -4,7 +4,7 @@ const host = '0.0.0.0';
 const port = process.env.SERVER_PORT || 10000;
 
 app.use(express.static(__dirname+'/html'));
-app.get('/', (req, res) => res.send('index.html'));
+app.get('/', (req, res) => res.sendFile('index.html'));
 const server = app.listen(port,host, () => console.log('Server Start!!!'));
 
 const io = require('socket.io')(server);
@@ -19,11 +19,11 @@ io.on("connection", (socket) => {
             io.emit("playersComplete", { players:allPlayers });
         }
     });
-    socket.on("message", (msg) => {
+     socket.on("message", (msg) => {
         socket.broadcast.emit("sendMessage", { message:msg.message });
     });
     socket.on("userScore", (score) => {
-        socket.broadcast.emit("userScore", { userScore: score.score})
+       socket.broadcast.emit("userScore", { userScore: score.score})
     });
 });
 
