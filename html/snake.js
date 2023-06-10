@@ -35,6 +35,7 @@ socket.on("sendMessage", (msg) => {
     let p = body.appendChild(createP);
     p.classList.add('message');
     createP.innerText = msg.message;
+    console.log(msg.message);
 });
 textMessage.addEventListener('focus', () => {
 
@@ -44,8 +45,9 @@ textMessage.addEventListener('focus', () => {
             let p = body.appendChild(createP);
             p.classList.add('user_message');
             createP.innerText = textMessage.value;
-            textMessage.value = '';
+            
             socket.emit("message", { message: textMessage.value });
+            textMessage.value = '';
         }
     });
 });
@@ -54,8 +56,8 @@ sendButton.addEventListener('click', (e) => {
     let p = body.appendChild(createP);
     p.classList.add('user_message');
     createP.innerText = textMessage.value;
-    textMessage.value = '';
     socket.emit("message", { message: textMessage.value });
+    textMessage.value = '';
 });
 
 socket.on("playersComplete", (allPlayers) => {
