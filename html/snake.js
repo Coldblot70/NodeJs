@@ -21,12 +21,49 @@ var score = document.getElementById("userScore");
 var oppScore = document.getElementById("opponentScore");
 var fruit = document.getElementById("fruits");
 
+var message = document.querySelector('.message');
+var userMessage = document.querySelector('.user_message');
+var sendButton = document.querySelector('#send');
+var body = document.querySelector('.body');
+var textMessage = document.querySelector('.textMessage');
+var chatButton = document.querySelector('#chatButton');
+var activeElement = document.activeElement;
+
+socket.on("sendMessage", (msg) => {
+ 
+    var createP = document.createElement('p');
+    let p = body.appendChild(createP);
+    p.classList.add('message');
+    createP.innerText = msg.message;
+});
+textMessage.addEventListener('focus', () => {
+
+    document.addEventListener('keyup', (e) => {
+        if (e.key == 'Enter') {
+            var createP = document.createElement('p');
+            let p = body.appendChild(createP);
+            p.classList.add('user_message');
+            createP.innerText = textMessage.value;
+            textMessage.value = '';
+            socket.emit("message", { message: textMessage.value });
+        }
+    });
+});
+sendButton.addEventListener('click', (e) => {
+    var createP = document.createElement('p');
+    let p = body.appendChild(createP);
+    p.classList.add('user_message');
+    createP.innerText = textMessage.value;
+    textMessage.value = '';
+    socket.emit("message", { message: textMessage.value });
+});
+
 socket.on("playersComplete", (allPlayers) => {
     document.getElementById("mainContainer").style.display = "block";
     document.getElementById("waiting").style.display = "none";
     foundPlayer = allPlayers.players.find(obj => obj == name);
     oppPlayer = allPlayers.players.find(obj => obj != name);
-
+    chatButton.style.display = 'block';
     user.innerText = foundPlayer;
     opponent.innerText = oppPlayer;
 });

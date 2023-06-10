@@ -1,6 +1,4 @@
 <html> 
-
-
 <head>
     <title>
         Snake2D
@@ -8,12 +6,14 @@
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
+    <!--For a chat box-->
+    <!--For a canvas-->
     <div id="mainContainer">
         <h1>Snake</h1>
         <div id="scoreBoard">
-            <h2 id="userText">User-</h2>
+            <!--<h2 id="userText">User-</h2>-->
             <h2 id="score"><span id="user">UserScore</span>:<span id="userScore">0</span></h2>
-            <h2 id="oppText">Opponent-</h2>
+            <!--<h2 id="oppText">Opponent-</h2>-->
             <h2 id="oppScore"><span id="opponent">OppName</span>:<span id="opponentScore">0</span></h2>
         </div>
         <img src="" id="fruits" width="0" height="0" />
@@ -25,8 +25,29 @@
         <img src="./Images/Loading.gif" />
         <button id="enter">PressToEnter</button>
     </div>
+    <div class="main-container">
+        <img src="Images/chatbutton.png" id="chatButton" />
+        <div class="container">
+            <div class="header">
+                <h1>Messanger</h1>
+                <div class="bcontent">
+                    <img src="Images/cross.png" class="close" />
+                </div>
+            </div>
+            <div class="body">
+                <!--<p class="message">Hello</p>
+                <p class="user_message">Hello</p>-->
+            </div>
+            <div class="footer">
+                <div id="form">
+                    <input class="textMessage" type="text" name="" />
+                    <button id="send">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="snake.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
